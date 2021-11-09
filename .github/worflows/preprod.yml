@@ -1,5 +1,5 @@
 name: CI / CD pre prod
-on: push
+on: pull_request
   branches:
     - develop
     
@@ -23,6 +23,16 @@ jobs:
     - name: Deploy to heroku
     run: git push --force heroku `git subtree split --prefix server HEAD`:master
 
+on: push
+  branches: 
+    - develop
+
+jobs:
+  deploy:
+      - name: add remote origin
+      run: git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
+      - name: Deploy to heroku
+      run: git push --force heroku `git subtree split --prefix server HEAD`:master
 
     
   
