@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getBinancePrices = async () => {
+export const getBinancePrices = () => {
   return axios
     .get("https://api.binance.com/api/v3/ticker/price")
     .then((res) => res.data)
