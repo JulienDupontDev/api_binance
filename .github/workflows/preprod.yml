@@ -1,0 +1,34 @@
+name: CI / CD pre prod
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: |
+          yarn
+  # tests:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Run tests
+  #   run: yarn test
+  #  with:
+  #         heroku_api_key: ${{secrets.HEROKU_KEY}}
+  #         heroku_app_name: ${{secrets.HEROKU_APP}}
+
+# on: push
+#   branches:
+#     - develop
+
+# jobs:
+#   deploy:
+#       - name: add remote origin
+#      - uses: akhileshns/heroku-deploy@v3.12.12
+
+#       run: git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
+#       - name: Deploy to heroku
+#       run: git push --force heroku `git subtree split --prefix server HEAD`:master
+
