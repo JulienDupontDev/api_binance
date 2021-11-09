@@ -13,7 +13,9 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP}}
     run: yarn
   tests:
-    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
     run: yarn test
 # on: push
 #   branches:
