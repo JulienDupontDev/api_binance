@@ -1,6 +1,6 @@
 name: CI / CD pre prod
 on: 
-  push:
+  pull_request:
     
 jobs:
   build:
