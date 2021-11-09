@@ -1,23 +1,22 @@
 name: CI / CD pre prod
-on: 
+on:
   pull_request:
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Install modules
-      with:
-        heroku_api_key: ${{secrets.HEROKU_KEY}}
-        heroku_app_name: ${{secrets.HEROKU_APP}}
+      - uses: actions/checkout@v2
+      - name: Install modules
+        with:
+          heroku_api_key: ${{secrets.HEROKU_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP}}
     run: yarn
-    tests:
+  tests:
     - name: Run tests
     run: yarn test
-
 # on: push
-#   branches: 
+#   branches:
 #     - develop
 
 # jobs:
@@ -29,5 +28,3 @@ jobs:
 #       - name: Deploy to heroku
 #       run: git push --force heroku `git subtree split --prefix server HEAD`:master
 
-    
-  
