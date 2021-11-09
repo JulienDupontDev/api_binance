@@ -9,9 +9,9 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install modules
       - uses: akhileshns/heroku-deploy@v3.12.12
-          with:
-            heroku_api_key: ${{secrets.HEROKU_KEY}}
-            heroku_app_name: ${{secrets.HEROKU_APP}}
+        with:
+          heroku_api_key: ${{secrets.HEROKU_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP}}
       run: yarn
   tests:
     - name: Run tests
